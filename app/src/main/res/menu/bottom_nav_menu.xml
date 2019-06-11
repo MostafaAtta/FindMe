@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_supermarket"
+        android:icon="@drawable/online_cart"
+        android:title="@string/menu_supermarket" />
+
+    <item
+        android:id="@+id/navigation_bakery"
+        android:icon="@drawable/bread"
+        android:title="@string/menu_bakery" />
+
+    <item
+        android:id="@+id/navigation_butcher"
+        android:icon="@drawable/barbecue"
+        android:title="@string/menu_butcher" />
+
+    <item
+        android:id="@+id/navigation_vegetables"
+        android:icon="@drawable/harvest"
+        android:title="@string/menu_vegetables" />
+
+    <item
+        android:id="@+id/navigation_services"
+        android:icon="@drawable/tools"
+        android:title="@string/menu_services" />
+
+</menu>

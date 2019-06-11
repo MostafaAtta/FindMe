@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_supermarket"
+            android:icon="@drawable/online_cart"
+            android:title="@string/menu_supermarket" />
+        <item
+            android:id="@+id/nav_bakery"
+            android:icon="@drawable/bread"
+            android:title="@string/menu_bakery" />
+        <item
+            android:id="@+id/nav_butcher"
+            android:icon="@drawable/barbecue"
+            android:title="@string/menu_butcher" />
+        <item
+            android:id="@+id/nav_vegetables"
+            android:icon="@drawable/harvest"
+            android:title="@string/menu_vegetables" />
+        <item
+            android:id="@+id/nav_services"
+            android:icon="@drawable/tools"
+            android:title="@string/menu_services" />
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/cart"
+            android:title="@string/menu_cart" />
+        <item
+            android:id="@+id/nav_my_order"
+            android:icon="@drawable/list"
+            android:title="@string/menu_my_order" />
+    </group>
+
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/login"
+                android:icon="@drawable/login"
+                android:title="@string/menu_login" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/exit"
+                android:title="@string/menu_logout" />
+        </menu>
+    </item>
+
+</menu>

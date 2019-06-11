@@ -1,0 +1,114 @@
+<resources>
+    <string name="app_name">FindMe</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_bakery">Bakery</string>
+    <string name="menu_butcher">Butcher</string>
+    <string name="menu_supermarket">Supermarket</string>
+    <string name="menu_vegetables">Vegetables</string>
+    <string name="menu_services">Services</string>
+    <string name="menu_login">Login</string>
+    <string name="menu_logout">Logout</string>
+    <string name="title_activity_categories">Categories</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="login" translatable="false">LOGIN</string>
+    <string name="show_pwd" translatable="false">Show Password</string>
+    <string name="hide_pwd" translatable="false">Hide Password</string>
+    <string name="forgot" translatable="false">Forgot password?</string>
+    <string name="closebutton" translatable="false">Close Button for Activity</string>
+    <string name="newUser" translatable="false">Not a Member yet? Sign Up here.</string>
+    <string name="fullName" translatable="false">Full Name</string>
+    <string name="mobileNumber" translatable="false">Mobile Number</string>
+    <string name="location" translatable="false">Location</string>
+    <string name="confirmPassword" translatable="false">Confirm Password</string>
+    <string name="terms_conditions" translatable="false">By clicking SignUp you agree all the Terms and Conditions.</string>
+    <string name="signUp" translatable="false">SIGN UP</string>
+    <string name="already_user" translatable="false">Already have Account? Login here.</string>
+    <string name="registered_emailid" translatable="false">Please enter your Registered Email Id below:</string>
+    <string name="submit" translatable="false">SUBMIT</string>
+    <string name="back" translatable="false">BACK</string>
+    <string name="login_to" translatable="false">Welcome to CHEF</string>
+    <string name="register_text" translatable="false">New User? \n join us now!</string>
+    <string name="register_later" translatable="false">register later</string>
+    <string name="birth_date" translatable="false">Birth Date</string>
+    <string name="select_area" translatable="false">Select Your ِArea…</string>
+    <string name="delete" translatable="false">DELETE</string>
+
+
+    <string name="Login" translatable="false">LOGIN</string>
+    <string name="Register" translatable="false">Register</string>
+    <string name="not_a_member_sign_up" translatable="false">Not a member? Sign up</string>
+    <string name="btnBackToHome" translatable="false">Back To Home</string>
+    <string name="hint_dob" translatable="false">Enter Age</string>
+    <string name="hint_password" translatable="false">Password</string>
+    <string name="confirm_password" translatable="false">Confirm password</string>
+    <string name="hint_email" translatable="false">Email</string>
+    <string name="hint_gender" translatable="false">I am</string>
+    <string name="gender" translatable="false">Gender</string>
+    <string name="country" translatable="false">Country</string>
+    <string name="city" translatable="false">City</string>
+    <string name="Birthday" translatable="false">Birthday</string>
+
+    <string name="male" translatable="false">Male</string>
+    <string name="female" translatable="false">Female</string>
+    <string name="btn_sign_up" translatable="false">Register !!</string>
+    <string name="err_msg_name" translatable="false">Please enter a Name</string>
+    <string name="err_msg_required" translatable="false">Valid Input Required</string>
+    <string name="err_msg_email" translatable="false">Please enter a Valid Email</string>
+    <string name="err_msg_password" translatable="false">Enter a Password</string>
+    <string name="err_msg_dob" translatable="false">Enter a valid D.O.B</string>
+    <string name="btn_login" translatable="false">Login</string>
+    <string name="btn_link_signup" translatable="false">Don\'t have an account yet Register !!</string>
+    <string name="btn_link_login" translatable="false">Already have an account Login !!</string>
+    <string name="prompt_email" translatable="false">Email</string>
+    <string name="prompt_password" translatable="false">Password</string>
+    <string name="action_sign_in" translatable="false">Login</string>
+    <string name="action_sign_in_short" translatable="false">Sign in</string>
+    <string name="error_invalid_email" translatable="false">This email address is invalid</string>
+    <string name="error_invalid_password" translatable="false">This password is too short</string>
+    <string name="error_incorrect_password" translatable="false">This password is incorrect</string>
+    <string name="error_field_required" translatable="false">This field is required</string>
+    <string name="permission_rationale" translatable="false">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="skip">Skip</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="action_skip">skip</string>
+    <string name="menu_cart">Cart</string>
+
+
+    <string-array name="locations">
+        <item>Select Your ِArea…</item>
+        <item>6 of October</item>
+        <item>Nasr City</item>
+        <item>Maadi</item>
+        <item>Heliopolis</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="landmark">landmark</string>
+    <string name="apartment">apartment</string>
+    <string name="floor">floor</string>
+    <string name="building_num">building number</string>
+    <string name="street">street</string>
+    <string name="add_name">address name</string>
+    <string name="area">area</string>
+    <string name="menu_my_order">My orders</string>
+</resources>
