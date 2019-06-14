@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.andremion.counterfab.CounterFab;
-import com.atta.findme.cart.CartActivity;
+import com.atta.findme.CategoriesActivity;
 import com.atta.findme.R;
+import com.atta.findme.cart.CartActivity;
 import com.atta.findme.model.Product;
 import com.atta.findme.model.ProductsAdapter;
 import com.atta.findme.model.Shop;
@@ -25,6 +27,8 @@ public class ShopMenuActivity extends AppCompatActivity implements ShopMenuContr
 
     CounterFab counterFab;
 
+    ImageView backToMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +39,23 @@ public class ShopMenuActivity extends AppCompatActivity implements ShopMenuContr
 
         counterFab = findViewById(R.id.fab);
 
+        backToMain = findViewById(R.id.btn_back);
+
         shopMenuPresenter = new ShopMenuPresenter( this, this);
 
-        Shop shop = (Shop) getIntent().getSerializableExtra("shop");
+        final Shop shop = (Shop) getIntent().getSerializableExtra("shop");
+
+        backToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShopMenuActivity.this, CategoriesActivity.class);
+                if (shop != null){
+
+                    intent.putExtra("fragment", shop.getCategory());
+                }
+                startActivity(intent);
+            }
+        });
 
         shopMenuPresenter.getProducts(shop.getCategory(), shop.getId());
 

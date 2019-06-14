@@ -6,15 +6,12 @@ import java.util.ArrayList;
 
 public interface OrderDetailsContract {
 
+
     interface View{
 
         void showMessage(String error);
 
         void showRecyclerView(ArrayList<Product> products);
-
-        void showOrderDialog(Product product);
-
-        void updateText();
     }
 
     interface Presenter{

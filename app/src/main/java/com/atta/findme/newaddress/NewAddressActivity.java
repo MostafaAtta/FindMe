@@ -35,7 +35,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
 
     NewAddressPresenter newAddressPresenter;
 
-    boolean addEdie;
+    boolean addEdit;
 
     int id;
 
@@ -55,12 +55,12 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
 
         if (getIntent().getSerializableExtra("address") == null) {
 
-            addEdie = true;
+            addEdit = true;
             Intent intent = new Intent(NewAddressActivity.this, MapsActivity.class);
             startActivityForResult(intent, 1);
 
         }else {
-            addEdie = false;
+            addEdit = false;
             address = (Address) getIntent().getSerializableExtra("address");
 
             setData();
@@ -245,7 +245,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
         if (v == saveBtn){
 
             int userId = new SessionManager(this).getUserId();
-            if (addEdie) {
+            if (addEdit) {
 
                 Address address = new Address(userId, floorEditText.getText().toString(), apartmentNumberEditText.getText().toString(), buildingNumberEditText.getText().toString(),
                         areaEditText.getText().toString(), addressNameEditText.getText().toString(), fullAddress, streetEditText.getText().toString(),

@@ -1,7 +1,5 @@
 package com.atta.findme.orderdetails;
 
-import android.content.Context;
-
 import com.atta.findme.model.APIService;
 import com.atta.findme.model.APIUrl;
 import com.atta.findme.model.Product;
@@ -19,11 +17,9 @@ public class OrderDetailsPresenter implements OrderDetailsContract.Presenter {
 
     private OrderDetailsContract.View mView;
 
-    private Context mContext;
 
-    public OrderDetailsPresenter(OrderDetailsContract.View mView, Context mContext) {
+    public OrderDetailsPresenter(OrderDetailsContract.View mView) {
         this.mView = mView;
-        this.mContext = mContext;
     }
 
     @Override
@@ -39,7 +35,7 @@ public class OrderDetailsPresenter implements OrderDetailsContract.Presenter {
         APIService service = retrofit.create(APIService.class);
 
         //Defining the user object as we need to pass it with the call
-        //User user = new User(name, email, password, phone, birthdayString, locationSting);
+        //User user = new_icon User(name, email, password, phone, birthdayString, locationSting);
 
         //defining the call
         Call<Products> call = service.getOrderProducts(orderId);
@@ -51,17 +47,18 @@ public class OrderDetailsPresenter implements OrderDetailsContract.Presenter {
 
                 if (response.body() != null){
 
-                        if (response.body().getProducts() != null){
+                    if (response.body().getProducts() != null){
 
 
-                            ArrayList<Product> products = response.body().getProducts();
+                        ArrayList<Product> products = response.body().getProducts();
 
-                            if (products.size() > 0){
+                        if (products.size() > 0){
 
-                            }
-                        }else {
-                            mView.showMessage("An error");
+                            mView.showRecyclerView(products);
                         }
+                    }else {
+                        mView.showMessage("An error");
+                    }
 
 
                 }else {

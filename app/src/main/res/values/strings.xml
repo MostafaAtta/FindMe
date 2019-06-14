@@ -44,7 +44,7 @@
     <string name="registered_emailid" translatable="false">Please enter your Registered Email Id below:</string>
     <string name="submit" translatable="false">SUBMIT</string>
     <string name="back" translatable="false">BACK</string>
-    <string name="login_to" translatable="false">Welcome to CHEF</string>
+    <string name="login_to" translatable="false">Login and Easy your life</string>
     <string name="register_text" translatable="false">New User? \n join us now!</string>
     <string name="register_later" translatable="false">register later</string>
     <string name="birth_date" translatable="false">Birth Date</string>

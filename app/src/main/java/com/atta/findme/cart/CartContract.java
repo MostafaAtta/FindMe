@@ -30,6 +30,8 @@ public interface CartContract {
 
         void showDialog();
 
+        void setDialog();
+
         boolean validateOrder(int deliveryAdd, EditText timeText, EditText dateText);
 
         void dismissProgressDialog();

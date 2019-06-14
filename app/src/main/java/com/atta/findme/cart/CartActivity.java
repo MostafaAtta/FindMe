@@ -14,7 +14,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -22,7 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -77,6 +75,13 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 
     Dialog myDialog;
 
+
+    Button confirmButton;
+    RadioButton now, later;
+    Switch mobileSwitch;
+
+    TextView mobileTxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +90,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
         initiateViews();
 
         setProgressDialog();
+
+        setDialog();
 
         cartPresenter = new CartPresenter(this, this, recyclerView, summaryRecyclerView,  progressDialog);
 
@@ -294,28 +301,13 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
         }*/
 
     }
-
-
     @Override
-    public void showDialog() {
-
-        Button confirmButton;
-        RadioButton now, later;
-        Switch mobileSwitch;
-
-        final TextView mobileTxt;
-
-
-        Spinner addressesSpinner;
-
-        ArrayAdapter<String> addressesAdapter;
-
+    public void setDialog() {
 
         schedule = "now";
         myDialog.setContentView(R.layout.order_popup);
 
         addressTv = myDialog.findViewById(R.id.address_text) ;
-        addressTv.setText(address.getFullAddress());
 
         now = myDialog.findViewById(R.id.now) ;
         later = myDialog.findViewById(R.id.later) ;
@@ -353,11 +345,6 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
         });
 
 
-        addressTv.setText(address.getFullAddress());
-        deliveryAddId = address.getId();
-        fullAddress = address.getFullAddress();
-        addressLocation = address.getArea();
-
 
         setDateTime();
 
@@ -376,68 +363,68 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 
                 if (address != null){
                     //if (addressLocation.equals(location)){
-                        if (!tempPhone.getText().toString().isEmpty()){
-                            mobile = tempPhone.getText().toString();
-                        }
-                        if(myDialog.isShowing() ){
-                            myDialog.dismiss();
-                        }
+                    if (!tempPhone.getText().toString().isEmpty()){
+                        mobile = tempPhone.getText().toString();
+                    }
+                    if(myDialog.isShowing() ){
+                        myDialog.dismiss();
+                    }
 
-                        //mobileNumberTxt.setText(mobile);
+                    //mobileNumberTxt.setText(mobile);
 
 
 
-                        if (schedule == "now"){
+                    if (schedule == "now"){
 
-                            if (new Date().getHours() > 20){
+                        if (new Date().getHours() > 20){
 
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
-                                String date = sdf.format(addDaysToJavaUtilDate(new Date(), 1));
+                            String date = sdf.format(addDaysToJavaUtilDate(new Date(), 1));
 
-                                String time = "11:00 AM";
+                            String time = "11:00 AM";
 
-                                orderTime = date + " " + time;
+                            orderTime = date + " " + time;
 
-                            }else if (new Date().getHours() < 11){
+                        }else if (new Date().getHours() < 11){
 
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
-                                String date = sdf.format(new Date());
+                            String date = sdf.format(new Date());
 
-                                String time= "11:00 AM";
+                            String time= "11:00 AM";
 
-                                orderTime = date + " " + time;
+                            orderTime = date + " " + time;
 
-                            }else {
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.US);
+                        }else {
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.US);
 
-                                String currentTime = sdf.format(new Date());
+                            String currentTime = sdf.format(new Date());
 
-                                Date date = null;
-                                try {
-                                    date = sdf.parse(currentTime);
-                                } catch (ParseException e) {
-                                    e.printStackTrace();
-                                }
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.setTime(date);
-                                calendar.add(Calendar.MINUTE, 90);
-
-                                orderTime = sdf.format(calendar.getTime());
+                            Date date = null;
+                            try {
+                                date = sdf.parse(currentTime);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
                             }
-                        }else orderTime = dateSelected + " " + timeSelected;
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTime(date);
+                            calendar.add(Calendar.MINUTE, 90);
+
+                            orderTime = sdf.format(calendar.getTime());
+                        }
+                    }else orderTime = dateSelected + " " + timeSelected;
 
                         /*deliveryTimeTxt.setText(orderTime);
                         deliveryAddTxt.setText(fullAddress);*/
 
 
-                        if (validateOrder(deliveryAddId, timeText, dateText)){
+                    if (validateOrder(deliveryAddId, timeText, dateText)){
 
-                            createOrder(deliveryAddId);
+                        createOrder(deliveryAddId);
 
-                            myDialog.dismiss();
-                        }
+                        myDialog.dismiss();
+                    }
 
                     /*findViewById(R.id.sammary_layout).startAnimation(mSlideFromBelow);
                     findViewById(R.id.sammary_layout).setVisibility(View.VISIBLE);
@@ -495,8 +482,18 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
                 }
             }
         });
+    }
+
+    @Override
+    public void showDialog() {
 
 
+        if (address != null) {
+            addressTv.setText(address.getFullAddress());
+            deliveryAddId = address.getId();
+            fullAddress = address.getFullAddress();
+            addressLocation = address.getArea();
+        }
 
         myDialog.setCancelable(true);
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -636,7 +633,6 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 
     @Override
     public void showAddressesMessage(String message) {
-
         addressTv.setText(message);
     }
 

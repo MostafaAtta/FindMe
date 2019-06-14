@@ -26,32 +26,43 @@ public class CategoriesActivity extends AppCompatActivity implements BottomNavig
         String fragmentName = getIntent().getStringExtra("fragment");
 
 
-        switch (fragmentName) {
-            case "bakery":
-                navigation.setSelectedItemId(R.id.navigation_bakery);
-                break;
+        if (fragmentName == null){
+            navigation.setSelectedItemId(R.id.navigation_supermarket);
+        }else {
+            switch (fragmentName) {
+                case "bakery":
+                case "Bakery":
+                    navigation.setSelectedItemId(R.id.navigation_bakery);
+                    break;
 
-            case "butcher":
-                navigation.setSelectedItemId(R.id.navigation_butcher);
-                break;
+                case "butcher":
+                case "Butcher":
+                    navigation.setSelectedItemId(R.id.navigation_butcher);
+                    break;
 
-            case "super market":
+                case "super market":
+                case "Super Market":
+                case "Super market":
+                case "super Market":
 
-                navigation.setSelectedItemId(R.id.navigation_supermarket);
-                break;
+                    navigation.setSelectedItemId(R.id.navigation_supermarket);
+                    break;
 
-            case "vegetables":
-                navigation.setSelectedItemId(R.id.navigation_vegetables);
-                break;
+                case "vegetables":
+                case "Vegetables":
+                    navigation.setSelectedItemId(R.id.navigation_vegetables);
+                    break;
 
-            case "services":
-                navigation.setSelectedItemId(R.id.navigation_services);
-                break;
+                case "services":
+                case "Services":
+                    navigation.setSelectedItemId(R.id.navigation_services);
+                    break;
 
-            default:
-                navigation.setSelectedItemId(R.id.navigation_supermarket);
-                break;
+                default:
+                    navigation.setSelectedItemId(R.id.navigation_supermarket);
+                    break;
 
+            }
         }
 
     }
